@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.creditcard {
+  width: 500px;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+  position: relative;
+  background-color: #39428f;
+}
+.creditcard h1 {
+  color: white;
+  margin-right: 10px;
+}
+
+.smartcard {
+  height: 180px;
+  width: 220px;
+  position: absolute;
+  top: 120px;
+  left: 270px;
+}
+.puce {
+  height: 75px;
+  width: 110px;
+  position: absolute;
+  left: 0;
+  top: 30px;
+}
+
+.infos {
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 290px;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: left;
+  color: white;
+  /* border: 1px solid red; */
+}
+.infos p {
+  height: 30px;
+  margin: 0;
+}
+.right-al {
+  text-align: right;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+}
+.inputs input {
+  width: 200px;
+  height: 20px;
+  margin-bottom: 20px;
+}

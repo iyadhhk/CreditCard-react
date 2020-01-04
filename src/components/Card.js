@@ -6,7 +6,6 @@ class Card extends React.Component {
     this.state = {
       name: "Ali",
       cardNumber: 564645,
-      month: 12,
       valid: ""
     };
   }
@@ -17,13 +16,31 @@ class Card extends React.Component {
     this.setState({ name: e.target.value });
   };
 
-  changeValid = e => {
-    let date = e.target.value;
-    if (date.length === 2 && this.state.valid.length < 2) {
-      e.target.value = date + "/";
+  changeValid = (e) => {
+    let v = e.target.value;
+    let prevState = this.state.valid;
+    console.log(v);
+    console.log(prevState);
+    if (v.length <= 5) {
+      if (v.length === 2 && prevState.length === 1) {
+        if (Number(v) <= 12) {
+          e.target.value = v + '/';
+          v += '/';
+          this.setState({ valid: v }, () => console.log(this.state));
+        }
+        else {
+          e.target.value = "";
+          v = "";
+          this.setState({ valid: "" }, () => console.log(this.state));
+        }
+      }
+      this.setState({ valid: v });
+    }
+    else {
+      e.target.value = v.substr(0, 5);
     }
 
-    this.setState({ valid: date });
+
   };
 
   render() {

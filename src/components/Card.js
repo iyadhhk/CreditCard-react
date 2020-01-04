@@ -18,7 +18,13 @@ class Card extends React.Component {
     }
   };
   changeName = e => {
-    this.setState({ name: e.target.value });
+    let nameInput = e.target.value;
+    if (nameInput.length <= 20) {
+      this.setState({ name: nameInput });
+    }
+    else {
+      e.target.value = nameInput.substr(0, 20);
+    }
   };
 
   changeValid = (e) => {

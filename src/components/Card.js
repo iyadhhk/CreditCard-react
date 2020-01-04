@@ -21,7 +21,7 @@ class Card extends React.Component {
     let prevState = this.state.valid;
     if (v.length <= 5) {
       if (v.length === 2 && prevState.length === 1) {
-        if (Number(v) <= 12) {
+        if (Number(v) >= 1 && Number(v) <= 12) {
           e.target.value = v + '/';
           v += '/';
           this.setState({ valid: v });

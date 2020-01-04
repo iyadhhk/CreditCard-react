@@ -31,19 +31,33 @@ class Card extends React.Component {
     let v = e.target.value;
     let prevState = this.state.valid;
     if (v.length <= 5) {
-      if (v.length === 2 && prevState.length === 1) {
+      if (v.length === 1) {
+        if (Number(v) === 0 || Number(v) === 1) {
+          this.setState({ valid: v });
+        } else {
+          e.target.value = "";
+          v = "";
+          this.setState({ valid: "" });
+        }
+      }
+      else if (v.length === 2 && prevState.length === 1) {
         if (Number(v) >= 1 && Number(v) <= 12) {
           e.target.value = v + '/';
           v += '/';
           this.setState({ valid: v });
         }
         else {
-          e.target.value = "";
-          v = "";
-          this.setState({ valid: "" });
+          e.target.value = prevState;
+          v = prevState;
+          this.setState({ valid: v });
         }
       }
-      this.setState({ valid: v });
+      else if (v.length >= 4 && isNaN(v.substr(3, 2))) {
+        e.target.value = prevState;
+      }
+      else {
+        this.setState({ valid: v });
+      }
     }
     else {
       e.target.value = v.substr(0, 5);

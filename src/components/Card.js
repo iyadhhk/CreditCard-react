@@ -19,19 +19,17 @@ class Card extends React.Component {
   changeValid = (e) => {
     let v = e.target.value;
     let prevState = this.state.valid;
-    console.log(v);
-    console.log(prevState);
     if (v.length <= 5) {
       if (v.length === 2 && prevState.length === 1) {
         if (Number(v) <= 12) {
           e.target.value = v + '/';
           v += '/';
-          this.setState({ valid: v }, () => console.log(this.state));
+          this.setState({ valid: v });
         }
         else {
           e.target.value = "";
           v = "";
-          this.setState({ valid: "" }, () => console.log(this.state));
+          this.setState({ valid: "" });
         }
       }
       this.setState({ valid: v });
@@ -39,8 +37,6 @@ class Card extends React.Component {
     else {
       e.target.value = v.substr(0, 5);
     }
-
-
   };
 
   render() {

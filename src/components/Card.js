@@ -10,12 +10,22 @@ class Card extends React.Component {
     };
   }
   changeCardNum = e => {
-    let cardNumber = e.target.value;
-    if (cardNumber.length <= 16) {
-      this.setState({ cardNumber: cardNumber });
+    let cardNum = e.target.value;
+    let prevState = this.state.cardNumber;
+    if (cardNum.length <= 16) {
+      if (isNaN(cardNum)) {
+        e.target.value = prevState;
+      } else {
+        this.setState({ cardNumber: cardNum });
+      }
     } else {
-      e.target.value = cardNumber.substr(0, 16);
+      e.target.value = cardNum.substr(0, 16);
     }
+  };
+  formatCardNumber = () => {
+    let str = String(this.state.cardNumber).padEnd(16, "*");
+    return str.slice(0, 4).concat('  ', str.slice(4, 8)).concat('  ', str.slice(8, 12)).concat('  ', str.slice(12));
+
   };
   changeName = e => {
     let nameInput = e.target.value;
@@ -75,7 +85,8 @@ class Card extends React.Component {
             alt=""
           ></img>
           <div className="infos">
-            <p>{String(this.state.cardNumber).padEnd(16, "*")}</p>
+
+            <p>{this.formatCardNumber()}</p>
             <p className="right-al">
               {String(this.state.valid).padEnd(5, "*")}
             </p>

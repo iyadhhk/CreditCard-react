@@ -10,7 +10,12 @@ class Card extends React.Component {
     };
   }
   changeCardNum = e => {
-    this.setState({ cardNumber: e.target.value });
+    let cardNumber = e.target.value;
+    if (cardNumber.length <= 16) {
+      this.setState({ cardNumber: cardNumber });
+    } else {
+      e.target.value = cardNumber.substr(0, 16);
+    }
   };
   changeName = e => {
     this.setState({ name: e.target.value });

@@ -1,8 +1,3 @@
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 .creditcard {
   width: 500px;
   height: 300px;
@@ -54,18 +49,4 @@
 }
 .right-al {
   text-align: right;
-}
-
-.inputs {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-  height: 300px;
-  align-items: center;
-  justify-content: center;
-}
-.inputs input {
-  width: 200px;
-  height: 20px;
-  margin-bottom: 20px;
 }
